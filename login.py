@@ -174,7 +174,7 @@ def registrarusu():
     Radiobutton(new, text="User",padx = 5, variable=Tipo, value="user").pack(padx=4,pady=4,ipadx=4,ipady=4)
     Radiobutton(new, text="Admin",padx = 20, variable=Tipo, value="admin").pack(padx=4,pady=4,ipadx=4,ipady=4)
 
-    label_4=tk.Label(new,text="Estado: ", font=("Agency FB",14)).place(x=10,y=365)
+    Label(new,text="Estado: ", font=("Agency FB",14)).place(x=10,y=365)
     list1 = [True,False]
 
     droplist=OptionMenu(new,Estado, *list1)

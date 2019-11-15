@@ -1,4 +1,3 @@
-# Importación de librerías.
 import os
 import json
 from PIL import ImageDraw
@@ -20,7 +19,7 @@ dictionary_for_colors = {}
 sorted_all_colors = []
 
 ## Nuestra función.
-def logic_images(args):
+def LogicImages(args):
     ## Abrimos nuestra imagen
     global pixels_per_image
     PIL_IMAGE_FILE = Image.open(args.file)
@@ -108,8 +107,7 @@ def main():
     args = parser.parse_args()
     # -f -> La imagen de la cual queremos obtener los colores.
     # -o -> Directorio para obtener los colores(se obtienen separados).
-    logic_images(args)
+    LogicImages(args)
 
 if __name__ == '__main__':
     main()
- 

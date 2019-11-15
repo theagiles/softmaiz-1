@@ -232,7 +232,7 @@ def RegistrarProduccion():
     new.geometry("500x500+700+5")
     new.configure(background='sea green')
     new.title("Registrar Produccion")
-    esw=tk.Label(new,text="Digite el siguiente formulario" ,bg="lawn green").pack(padx=5,pady=5,ipadx=5,ipady=5)
+    Label(new,text="Digite el siguiente formulario" ,bg="lawn green").pack(padx=5,pady=5,ipadx=5,ipady=5)
 
     Label(new,text="Fecha de produccion: ", font=("Agency FB",14)).place(x=10,y=45)
     entry_17 = tk.Entry(new,textvar=Fecha_produccion)

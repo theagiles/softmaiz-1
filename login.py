@@ -125,7 +125,6 @@ def limpiar():
     Password.set("")
 
 def database():
-    fecha_produccion = Fecha_produccion.get()
     identificaion=Identificaion.get()
     nombres=Nombres.get()
     apellidos=Apellidos.get()

@@ -210,7 +210,7 @@ def ValidarProduccion():
                     if(re.match(patron9,cadena9)):
                         if(re.match(patron10,cadena10)):
                             print("formulario de producción correcto")
-                        #messagebox.showwarning("Datos de producción Guardados correctamente ")
+                        
                             database_produc()
                         else:
                             messagebox.showwarning("Cuidado","valor de mazorcas no comerciales no valido ")

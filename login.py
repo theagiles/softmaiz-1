@@ -83,7 +83,7 @@ def validar():
     else:
         messagebox.showwarning("Cuidado","Dato incorrecto")
 
-
+#Validaciones del registro
 def Controlar():
     cadena=Nombres.get()
     patron="([A-Za-z])"

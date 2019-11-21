@@ -348,11 +348,52 @@ def tomarfoto():
     cap.release()
 
 def abre():
+    #fuente de letra
+    font = cv2.FONT_HERSHEY_SIMPLEX
     pic=filedialog.askopenfilename()
+
     # Cargamos la imagen
-    original = cv2.imread(pic)
-    cv2.imshow("original", original)
+    imagen = cv2.imread(pic)
+    if(imagen is None):
+        print("Error: no se ha podido encontrar la imagen")
+        quit()
+    
+    #convertir la imagen a hsv
+    hsv = cv2.cvtColor(imagen, cv2.COLOR_BGR2HSV)
+    #Rangos del color que debe quitar (blanco)
+    rango_bajo = np.array([0,0,200])
+    rango_alto = np.array([255, 50, 255])
+    fondo = cv2.inRange(hsv, rango_bajo, rango_alto)
+
+    mazorcas = cv2.bitwise_not(fondo)
+
+    kernel = np.ones((3,3),np.uint8)
+    mazorcas = cv2.morphologyEx(mazorcas,cv2.MORPH_OPEN,kernel)
+    mazorcas = cv2.morphologyEx(mazorcas,cv2.MORPH_CLOSE,kernel)
+
+    #contorno de los objetos que esten sobre el fondo blanco
+    contours,_ = cv2.findContours(mazorcas, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+    cv2.drawContours(imagen, contours, -1, (0,255,0), 2)
+    
+    #mostrar el numero de objetos contornados
+    print('Se detecto:', len(contours),' Mazorcas en la imagen ' )
+    
+    cv2.imshow('Final', imagen)
+    
+    
+    
+
     cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+
+
+
+
+
+
+
+
 
 def identidad():
     pic=filedialog.askopenfilename()

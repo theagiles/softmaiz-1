@@ -11,6 +11,7 @@ import cv2
 import tkinter as tk
 from tkinter import filedialog
 
+#estoy probando el git de escritorio
 mongoClient = MongoClient('localhost',27017)
 db = mongoClient.softmaiznew
 collection = db 
@@ -84,7 +85,7 @@ def validar():
         messagebox.showwarning("Cuidado","Dato incorrecto")
 
 #Validaciones del registro
-def Controlar():
+def Controlador():
     cadena=Nombres.get()
     patron="([A-Za-z])"
     cadena1=Correo.get()
@@ -100,6 +101,7 @@ def Controlar():
                 if(re.match(patron3,cadena3)):
                     if(re.match(patron,cadena4)):
                         print("formulario de registro correcto")
+                        messagebox.showinfo("Registro","Formulario realizado correctamente")
                         database()
                     else:
                         messagebox.showwarning("Cuidado","Apellidos no valido ")
@@ -184,7 +186,7 @@ def registrarusu():
 
     Button(new,text="Registrar",bg='brown', font=("black",12),command=Controlador).place(x=10,y=445)
     Button(new,text="Buscar",bg='brown', font=("black",12),command=traer).place(x=92,y=445)
-    Button(new,text="Actualizar",bg='brown', font=("black",12),command=consulta).place(x=160,y=445)
+    Button(new,text="Actualizar",bg='brown', font=("black",12),command=actualizarusu).place(x=160,y=445)
     Button(new,text="Borrar",bg='brown', font=("black",12),command=limpiar).place(x=245,y=445)
 
     Button(new,text="Cerrar",bg='orange', font=("black",12),command=new.destroy).place(x=100,y=490)
